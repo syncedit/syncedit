@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ the_title }}</title>
+        <style>
+            #anime-girl {
+                max-width: 100px;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Hello, {{ name }} !</h3>
+        <div>
+            <img id="anime-girl" alt="" src="https://i.pinimg.com/736x/56/a9/ad/56a9ad70fb92a77b8eed47ced71a495e.jpg"/> <br>
+            <button id="hide-show">Hide</button>
+        </div>
+    </body>
+    <script>
+        var btn = document.getElementById('hide-show')
+        var photo = document.getElementById('anime-girl')
+
+        function toggleImg() {
+            if (btn.innerHTML == "Hide") {
+                photo.classList.add("hidden")
+                btn.innerHTML = "Show"
+            }
+            else {
+                photo.classList.remove("hidden")
+                btn.innerHTML = "Hide"
+            }
+        }
+        btn.onclick = toggleImg
+    </script>
+</html>
+
