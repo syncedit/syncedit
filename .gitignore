@@ -1,0 +1,10 @@
+# virtual environment
+venv/
+
+# temporary files created by python interpreter
+__pycache__
+*.pyc
+
+# deployment specific config and env handling
+instance/
+.env
