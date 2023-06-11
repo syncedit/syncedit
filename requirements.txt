@@ -4,7 +4,9 @@ Flask-SQLAlchemy==3.0.3
 greenlet==2.0.2
 itsdangerous==2.1.2
 Jinja2==3.1.2
+mariadb==1.1.6
 MarkupSafe==2.1.2
+packaging==23.1
 python-dotenv==1.0.0
 SQLAlchemy==2.0.15
 typing_extensions==4.6.3
