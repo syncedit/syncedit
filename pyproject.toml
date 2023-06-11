@@ -1,0 +1,11 @@
+name = "syncedit"
+dependencies = [
+    "flask",
+    "Flask-SQLAlchemy",
+    "python-dotenv",
+    "mariadb"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
