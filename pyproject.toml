@@ -1,10 +1,21 @@
+[project]
 name = "syncedit"
+description = "web app for mutual text editing"
+license = "LICENSE"
 dependencies = [
     "flask",
     "Flask-SQLAlchemy",
     "python-dotenv",
     "mariadb"
 ]
+authors = [
+    { name="Rahul Sharma", email="rsharma842756@gmail.com" }
+]
+
+[project.urls]
+"Homepage" = "https://github.com/syncedit/syncedit"
+"Bugs" = "https://github.com/syncedit/syncedit/issues"
+
 
 [build-system]
 requires = ["setuptools"]
