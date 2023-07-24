@@ -14,14 +14,14 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
 
     # Set some defaults.
-    app.config.from_mapping(
-        SECRET_KEY='dev'
-    )
+    # app.config.from_mapping(
+    #     SECRET_KEY='### please-override-in-production ###'
+    # )
 
     # Make sure the app instance directory exists.
     try:
         os.makedirs(app.instance_path)
-    except OSError:
+    except FileExistsError:
         pass
 
     if test_config is None:
@@ -37,6 +37,8 @@ def create_app(test_config=None):
         db.drop_all()
         db.create_all()
 
+    from syncedit.filehandler import bp as filehandler
+    app.register_blueprint(filehandler)
 
     # simple page that says hello
     @app.route('/hello')
