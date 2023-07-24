@@ -40,34 +40,7 @@ def create_app(test_config=None):
     from syncedit.filehandler import bp as filehandler
     app.register_blueprint(filehandler)
 
-    # simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, world!'
-
-
-    # page with image that can show/hide (javascript)
-    @app.route('/showhide/<username>')
-    def js_page(username):
-        return render_template('index.html',
-                               the_title='Try Out JS',
-                               name=username)
-
-
-    # show the app's users
-    @app.route('/users')
-    def show_users():
-        users = [str(user) for user in m.User.query.all()]
-        return users
-
-
-    # make a new user
-    @app.route('/reg/<username>')
-    def add_user(username):
-        user = m.User(username, 'letscode', 'someone@example.com')
-        db.session.add(user)
-        db.session.commit()
-        return f'Created {username}'
-
+    from syncedit.auth import bp as auth
+    app.register_blueprint(auth)
 
     return app
