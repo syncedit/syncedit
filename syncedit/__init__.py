@@ -3,6 +3,7 @@ import os
 
 from flask import Flask, render_template
 
+import syncedit.config
 from syncedit.extensions import db
 
 def create_app(test_config=None):
@@ -24,7 +25,8 @@ def create_app(test_config=None):
         pass
 
     if test_config is None:
-        # app.config.from_prefixed_env()
+        config = f'syncedit.config.{os.getenv("FLASK_ENV").title()}Config'
+        app.config.from_object(config)
         app.config.from_envvar('FLASK_CONFIG')
     else:
         app.config.from_mapping(test_config)
@@ -68,4 +70,3 @@ def create_app(test_config=None):
 
 
     return app
-
