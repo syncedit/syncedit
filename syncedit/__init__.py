@@ -33,9 +33,8 @@ def create_app(test_config=None):
 
     # Initialize database
     db.init_app(app)
-    import syncedit.models as m
-
     with app.app_context():
+        db.drop_all()
         db.create_all()
 
 
